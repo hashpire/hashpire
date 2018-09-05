@@ -8,3 +8,5 @@ defaults:
       path: ""
     values:
       layout: "default"
+
+permalinks: /:categories/:year/:month/:day/:title/

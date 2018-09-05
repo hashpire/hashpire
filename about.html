@@ -1,6 +1,30 @@
 ---
-title: about
+title: About
 ---
 <div class="container">
-  <h1>About</h1>
+  <div class="card">
+    <h1 class="title">About</h1>
+    <p>We build kickass apps!</p>
+  </div>
+  <div class="card">
+    <h1 class="title">Our Team</h1>
+    <div class="profiles">
+      {% for profile in site.data.profiles %}
+        <div class="profile">
+          <img src="{{profile.image}}" alt="{{profile.name}}">
+          <span class="name">{{profile.name}}</span>
+          <span class="short-intro">{{profile.short-intro}}</span>
+          <div>
+            {% if profile.website %}
+              <a href="{{profile.website}}" class="profile-link"><i class="fas fa-user-circle"></i></a>
+            {% endif %}
+            {% if profile.github %}
+              <a href="{{profile.github}}" class="profile-link"><i class="fab fa-github-square"></i></a>
+            {% endif %}
+          </div>
+
+        </div>
+      {% endfor %}
+    </div>
+  </div>
 </div>

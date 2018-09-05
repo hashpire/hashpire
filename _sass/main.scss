@@ -12,18 +12,46 @@ body {
 }
 
 .footer {
-  flex-shrink: 0;
-}
-
-.footer {
   background-color: #DDDDDD;
   padding: 20px 40px;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
   flex-wrap: wrap;
+  flex-shrink: 0;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 }
+
+.footer .split {
+  display: none;
+}
+
+.footer div:last-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+@media only screen and (min-width: 600px) {
+  .footer {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer .split {
+    display: inline;
+  }
+
+  .footer div:last-child {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+  }
+}
+
 
 .footer .email {
   font-weight: bold;

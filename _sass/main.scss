@@ -99,6 +99,13 @@ body {
 
 }
 
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
   #banner h1 {
@@ -118,5 +125,38 @@ body {
 
   #banner div {
     width: 50%;
+  }
+}
+
+.link {
+  font-weight: bold;
+  text-decoration: none;
+  color: black;
+}
+
+.link:visited {
+  color: black;
+}
+
+.link:hover {
+  color: #6699CC;
+}
+
+.card {
+  border-bottom: 1px solid #ddd;
+  width: 90%;
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .card {
+    width: 75%;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .card {
+    width: 60%;
   }
 }

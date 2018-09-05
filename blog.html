@@ -1,13 +1,13 @@
 ---
 title: Blog
 ---
-<h1>Latest Posts</h1>
 
-<ul>
+<div class="container">
+  <h1>Latest Posts</h1>
   {% for post in site.posts %}
-    <li>
-      <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
-      <p>{{ post.excerpt }}</p>
-    </li>
+    <div class="card">
+      <h2><a href="{{ post.url }}" class="link">{{ post.title }}</a></h2>
+      <p>{{ post.excerpt }}<a href="{{ post.url }}" class="link">[Read More]</a></p>
+    </div>
   {% endfor %}
-</ul>
+</div>

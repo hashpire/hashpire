@@ -5,11 +5,92 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page.title }}</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/assets/semantic/semantic.min.css">
+    <script
+      src="https://code.jquery.com/jquery-3.1.1.min.js"
+      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+      crossorigin="anonymous"></script>
+    <script src="/assets/semantic/semantic.min.js"></script>
     <link rel="stylesheet" href="/assets/css/styles.css">
+    <script>
+        $(document)
+          .ready(function() {
+      
+            // fix menu when passed
+            $('.masthead')
+              .visibility({
+                once: false,
+                onBottomPassed: function() {
+                  $('.fixed.menu').transition('fade in');
+                },
+                onBottomPassedReverse: function() {
+                  $('.fixed.menu').transition('fade out');
+                }
+              })
+            ;
+      
+            // create sidebar and attach to menu open
+            $('.ui.sidebar')
+              .sidebar('attach events', '.toc.item')
+            ;
+      
+          })
+        ;
+    </script>
   </head>
   <body>
-    {% include navigation.html %}
-    {{ content }}
-    {% include footer.html %}
+
+
+    <!-- Following Menu -->
+    <div class="ui large top fixed hidden menu">
+      <div class="ui container">
+        {% for item in site.data.navigation %}
+          {% assign url = page.url | replace: ".html", "" %}
+          <a href="{{ item.link }}" class="{% if url  == item.link %}active{% endif %} item">{{ item.name }}</a>
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- Sidebar Menu -->
+    <div class="ui vertical inverted sidebar menu">
+      {% for item in site.data.navigation %}
+        {% assign url = page.url | replace: ".html", "" %}
+        <a href="{{ item.link }}" class="{% if url  == item.link %}active{% endif %} item">{{ item.name }}</a>
+      {% endfor %}
+    </div>
+
+
+    <!-- Page Contents -->
+    <div class="pusher">
+      <div class="ui inverted vertical masthead center aligned segment">
+
+        <div class="ui container">
+          <div class="ui large secondary inverted pointing menu">
+            <a class="toc item">
+              <i class="sidebar icon"></i>
+            </a>
+            {% for item in site.data.navigation %}
+              {% assign url = page.url | replace: ".html", "" %}
+              <a href="{{ item.link }}" class="{% if url  == item.link %}active{% endif %} item">{{ item.name }}</a>
+            {% endfor %}
+          </div>
+        </div>
+
+        <div class="ui text container">
+          <h1 class="ui inverted header">
+            Imagine-a-Company
+          </h1>
+          <h2>Do whatever you want when you want to.</h2>
+          <div class="ui huge primary button">Get Started <i class="right arrow icon"></i></div>
+        </div>
+
+      </div>
+
+      {{ content }}
+
+      {% include footer.html %}
+
+    </div>
+    <!-- {% include navigation.html %} -->
   </body>
 </html>

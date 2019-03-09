@@ -1,30 +1,64 @@
 ---
 title: About
 ---
-<div class="container">
-  <div class="card">
-    <h1 class="title">About</h1>
-    <p>We build kickass apps!</p>
-  </div>
-  <div class="card">
-    <h1 class="title">Our Team</h1>
-    <div class="profiles">
-      {% for profile in site.data.profiles %}
-        <div class="profile">
-          <img src="{{profile.image}}" alt="{{profile.name}}">
-          <span class="name">{{profile.name}}</span>
-          <span class="short-intro">{{profile.short-intro}}</span>
-          <div>
-            {% if profile.website %}
-              <a href="{{profile.website}}" class="profile-link"><i class="fas fa-user-circle"></i></a>
-            {% endif %}
-            {% if profile.github %}
-              <a href="{{profile.github}}" class="profile-link"><i class="fab fa-github-square"></i></a>
-            {% endif %}
-          </div>
 
+<div class="ui text container padding-vert">
+  <h1 class="ui center aligned huge header">About</h1>
+  <p>A software company based in Shanghai, China. </p>
+  <div class="ui divider"></div>
+</div>
+<div class="ui container">
+  <h2 class="ui left aligned large header">Our Team</h2>
+  <div class="ui four stackable cards padding-vert">
+    {% for profile in site.data.profiles %}
+    <div class="ui card">
+      <div class="image">
+        <img src="{{profile.image}}" alt="{{profile.name}}">
+      </div>
+      <div class="content">
+        <a class="header">{{profile.name}}</a>
+        <div class="meta">
+          <span>{{profile.position}}</span>
         </div>
-      {% endfor %}
+        <div class="description">
+            {{profile.short-intro}}
+        </div>
+      </div>
+      <div class="extra content">
+        <div class="ui list">
+          <div class="item">
+            <i class="marker icon"></i>
+            <div class="content">
+              {{profile.location}}
+            </div>
+          </div>
+          {% if profile.email %}
+          <div class="item">
+            <i class="mail icon"></i>
+            <div class="content">
+              <a href="mailto:{{profile.email}}">{{profile.email}}</a>
+            </div>
+          </div>
+          {% endif %}
+          {% if profile.website %}
+          <div class="item">
+            <i class="github icon"></i>
+            <div class="content">
+              <a href="https://github.com/{{profile.github}}">{{profile.github}}</a>
+            </div>
+          </div>
+          {% endif %}
+          {% if profile.website %}
+          <div class="item">
+            <i class="linkify icon"></i>
+            <div class="content">
+              <a href="{{profile.website}}">{{profile.website}}</a>
+            </div>
+          </div>
+          {% endif %}
+        </div>
+      </div>
     </div>
+    {% endfor %}
   </div>
 </div>

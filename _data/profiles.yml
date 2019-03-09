@@ -1,10 +1,30 @@
-- name: Anakorn Kyavatanakij
+- name: Anakorn Tata Kyavatanakij
   image: 'https://avatars3.githubusercontent.com/u/8156002'
-  short-intro: Full-Stack Developer
+  position: 'Full-Stack Developer'
+  short-intro: |
+    CS Graduate @ Peking University.
+    2018 Tokyo Longhash Hackathon First Prize Winner. Loves hacking and gaming.
+  location: Shanghai, China
+  email: anakornk@hashpire.com
+  github: anakornk
   website: http://anakornk.com
-  github: https://github.com/anakornk
+- name: Aaron Yu
+  image: /assets/images/aaron.jpeg
+  position: 'Marketer'
+  short-intro: |
+    Dog lover.
+  location: Shanghai, China
+  email: aaronyu@hashpire.com
+- name: Jialin Wang
+  image: https://avatars1.githubusercontent.com/u/11755823
+  position: 'AI Engineer'
+  short-intro: 'CS @ Peking University'
+  location: Beijing, China
 - name: LuBen
   image: 'https://avatars1.githubusercontent.com/u/29734247'
-  short-intro: 'Front End Developer'
-  github: 'https://github.com/hilltop16'
+  position: 'Front End Developer'
+  short-intro: 'Studied Chemistry at Purdue University. Loves front end and project management.'
+  location: Shanghai, China
+  github: hilltop16
+
 
